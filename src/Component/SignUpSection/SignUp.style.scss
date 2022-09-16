@@ -1,0 +1,75 @@
+$Main-font:'Josefin Sans','Roboto','EB+Garamond', sans-serif;
+
+
+$Primary-color: #a5f1e9;
+$Primary-color--2: #7fbcd2;
+$color-off-white: #eeee;
+$color--black:#1b2430;
+
+.Signup-Section{
+ font-family: $Main-font;
+  height: 100vh;
+ background-image: radial-gradient(circle,$Primary-color--2  55%, $color-off-white 10%, $Primary-color);
+
+   &--container{
+    width: 40rem;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 5px 5px 8px 4px #eeee;
+ 
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur (10px);
+    
+    //margin-bottom: 2rem;
+    position: absolute;
+   top: 10%;
+    right: 27%;
+
+   }
+   &__label{
+     display: block;
+     
+   }
+   &__input{
+    width: 100%;
+    padding: 10px 10px 10px 5px;
+    //margin-bottom: 1rem;
+    border-radius: 10px;
+    outline: none;
+    font-family: $Main-font;
+    font-size: 1.2rem ;
+    color: $color--black;
+
+    &:hover,
+    &:focus{
+     border-bottom: 3px solid $Primary-color--2;
+     
+    }
+
+   }
+   &--text{
+    text-transform: uppercase;
+    font-weight: 800;
+    font-family: $Main-font;
+    text-align: center;
+    color: $color--black;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+
+   }
+   &--span{
+    font-family:$Main-font;
+    color: $color--black;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+     align-items: center;
+
+   
+    
+   }
+}
+::placeholder{
+  font-size: 1rem;
+  font-family: $Main-font;
+}

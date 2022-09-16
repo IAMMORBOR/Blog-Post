@@ -1,0 +1,39 @@
+$Main-font:'Josefin Sans','Roboto','EB+Garamond', sans-serif;
+
+
+$Primary-color: #a5f1e9;
+$Primary-color--2: #7fbcd2;
+$color-off-white: #eeee;
+$color--black:#1b2430;
+
+.Button-component{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 1.8rem;
+    font-family: $Main-font;
+    margin-top: 2rem;
+    
+   
+    
+
+    &--main,
+    &--google{
+        height: 2.4rem;
+        width: 50%;
+        color: $Primary-color--2;
+        font-size: 1.1rem;
+        border: none;
+        border-radius: 6px;
+        margin-right: 5px;
+
+        &:hover{
+            background-color: $Primary-color;
+            color: #f9f9f9;
+        }
+       
+       
+        
+       
+    }
+}
