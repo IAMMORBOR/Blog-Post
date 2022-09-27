@@ -4,8 +4,8 @@ import { useState } from "react"
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import './Signin.style.scss';
+import SignUpImage from '../imageContainner/projectImg2.png'
 import Button from '../Button-component/Button.component'
-
 
 //createUserDocumentFromAuth
 
@@ -66,6 +66,7 @@ const SignIn = () => {
     
     return (
     <div className='Form-Section'>
+         <img className="Form-Section--img" src={SignUpImage}/>
         <div className='Form-Section--container'>
             <div className='SigninSection__heading'>
                 {/* <h3>Hello Again, Paadi mi</h3> */}
@@ -87,8 +88,9 @@ const SignIn = () => {
                 </label>
             <div className='Button-component'>
                 
-                <button type="submit"onClick={HandleLogin} className='Button-component--main'>Login</button>
-                    <button type="button" onClick={LoginWithGooglePopup} className='Button-component--google'>Login with Google</button>
+                <Button type="submit" handleclick={HandleLogin} btntype="main">Login</Button>
+                    <Button btntype="main" handleclick={LoginWithGooglePopup}
+                   >Login with Google</Button>
                 </div>
             </div>
             < span className='Form-Section--span'> Don't have an Account?

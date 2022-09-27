@@ -1,3 +1,64 @@
-// .content--MainSection{
-//     background-color: red;
-// }
+$Primary-color: #a5f1e9;
+$Primary-color--2: #7fbcd2;
+$color-off-white: #eeee;
+$color--black:#1b2430;
+$Main-font:'Josefin Sans','Roboto','EB+Garamond', sans-serif;
+
+
+.content--MainSection{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: $Primary-color--2;
+    padding: 4rem;
+
+ &--topicBox{
+    padding: 1rem;
+    border: 2px solid $Primary-color--2;
+    width: 100%;
+    margin-bottom: 10px;
+    font-family: $Main-font;
+    font-size: 1.2rem;
+    color: $color--black;
+    outline: none;
+
+ 
+ }
+ &--textArea{
+    border: 2px solid $Primary-color--2;
+    outline: none;
+    font-family: $Main-font;
+    color: $color--black;
+ 
+
+
+ }
+ &--btn{
+   background-color: $Primary-color--2;
+   color: #fff;
+   padding: .4rem 1rem;
+   border: none;
+   font-weight: 500;
+   font-family: $Main-font;
+   font-size: 1rem;
+   margin-top: .7rem;
+   border-radius: 9px;
+   box-shadow: 3px 2px 7px 2px #fff,
+    3px 4px 3px 2px $Primary-color--2;
+
+    &:hover,
+    &:active{
+      background-color: $Primary-color;
+      color: $Primary-color--2;
+    }
+ }
+}
+.content--textSection{
+    border: 2px solid $color-off-white;
+    padding: 2.5rem;
+    background-color:#fff;
+    box-shadow: 3px 4px 3px 2px grey;
+    border-radius: 20px;
+   
+}

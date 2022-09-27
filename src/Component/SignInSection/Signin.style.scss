@@ -9,7 +9,12 @@ $color--black:#1b2430;
 .Form-Section{
  font-family: $Main-font;
  height: 100vh;
- background-image: radial-gradient(circle,$Primary-color--2 55%, $color-off-white 10%, $Primary-color);
+ background-color: $Primary-color--2;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ //background-image: radial-gradient(circle,$Primary-color--2 55%, $color-off-white 10%, $Primary-color);
+
 
    &--container{
     width: 30rem;
@@ -22,6 +27,8 @@ $color--black:#1b2430;
     position: absolute;
     top: 20%;
     right: 32%;
+    justify-self: center;
+    align-self: center;
 
    }
    &__label{
@@ -65,8 +72,18 @@ $color--black:#1b2430;
    
     
    }
+   &--img{
+    width: 100%;
+    height: 100vh;
+   
+   }
 }
 ::placeholder{
   font-size: 1rem;
   font-family: $Main-font;
+}
+.Button-component{
+  display: flex;
+  margin-bottom: .6rem;
+  
 }

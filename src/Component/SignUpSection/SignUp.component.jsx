@@ -2,10 +2,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import{createUserWithEmailAndPassword, onAuthStateChanged}from 'firebase/auth'
 import { firebaseAuth } from '../../Firebase'
-//import Button from "../Button-component/Button.component";
+import Button from "../Button-component/Button.component";
 //import Content from "../ContentSection/Content.component";
 //import { async } from "@firebase/util";
 import './SignUp.style.scss'
+import SignUpImage from '../imageContainner/projectImgBGR.png'
+
+
 const DefaultFormField={
     UserName:'',
     Email:'',
@@ -56,6 +59,8 @@ const SignUp=  ()=>{
     }
     return (
         <div className="Signup-Section">
+            <img className="Signup-Section--img" src={SignUpImage}/>
+            <div className="Main">
             <div className="Signup-Section--container">
                 <h3 className="Signup-Section--text">SIGN UP</h3>
                 <div className="SignupForm-Section">
@@ -88,14 +93,17 @@ const SignUp=  ()=>{
                     </label>
                 </div>
                 <div className="Button-component">
-                    <button type="submit" onClick={HandleSignUp} className='Button-component--main'>SignUp</button>
+                    <Button type="submit" 
+                        handleclick={HandleSignUp}
+                        btntype="main">SignUp
+                    </Button>
                 </div>
                 <span className="Signup-Section--span">
                     Already have an account? 
                     <Link to='./SignIn'>Login</Link>
                 </span>
             </div>
-
+            </div>
         </div>
         
     )

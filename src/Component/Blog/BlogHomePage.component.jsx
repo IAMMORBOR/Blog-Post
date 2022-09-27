@@ -1,7 +1,9 @@
 import { auth, db,firebaseAuth } from "../../Firebase";
-import { onAuthStateChanged,signOut} from 'firebase/auth';
+import swal from 'sweetalert';
+import { onAuthStateChanged} from 'firebase/auth';
 import {
     collection, 
+    updateDoc, 
     getDoc,
     getDocs,
     doc,
@@ -9,79 +11,123 @@ import {
 } from "firebase/firestore";
 import { useState, useEffect} from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import NavSection from "../NavSection/NavSection.component";
+import {FaRegTrashAlt} from 'react-icons/fa';
+import {AiOutlineHeart}from 'react-icons/ai'
+import {AiFillEdit}from 'react-icons/ai'
+import Button from "../Button-component/Button.component";
 import './BlogHome.style.scss'
 import { async } from "@firebase/util";
 
 
-const HomePage= ()=>{
-    const [PostList, SetPostList]=useState([]);
-    const [user, setUser]=useState('');
-    const navigate = useNavigate();
-    const PostcollectionRef= collection(db, 'Post');
-    //const [like, addlike]=useState(4)
 
 
-useEffect(()=>{
-    const getPosts = async()=>{
-        const data = await getDocs(PostcollectionRef)
-        SetPostList(data.docs.map((doc)=>({...doc.data(), id:doc.id})));
-    };
-    getPosts();
-});
-onAuthStateChanged(firebaseAuth,(currentUser)=>{
-    if (currentUser){
-      setUser(currentUser);
-     
-    } 
-     else {
-      navigate ('/SignIn')
-     } 
-          
-  })
+const HomePage = ({isAuth}) => {
+    const [PostList, SetPostList] = useState([]);
+    const [user, setUser]=useState()
+    //const [like, setLike]=useState(1);
 
 
-   const deletePost=async(id)=>{
-   const PostDoc=( doc(db, 'Post', id))
-   await deleteDoc(PostDoc)
+    const PostcollectionRef = collection(db, 'Post');
 
-  }
- 
-    return(
-        <div>{PostList.map((Post)=>{
-        return (
-            
-            <div className="container ">
-            <div className="HomeSection--main">
-                <div className="HomeSection">
-                    <h3 className="HomeSection--title" >
-                        {Post.title}
-                    </h3>
-                    <div className="HomeSection--Description">
-                        {Post.comment}
-                    </div>
-                </div>
-                <div className="HomeSection--small">
-                    <div className="HomeSection--writer">
-                        <h4>@{Post.author.name}</h4>
-                    </div>
-                
-                    <div className="HomeSection--link-section">
-                        <Link to='/CreatePost'>Create a post</Link>
-                        <div className="like-section">
-                        <button>like</button>
+    useEffect(() => {
+        const getPosts = async () => {
+            const data = await getDocs(PostcollectionRef)
+            SetPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        };
+        getPosts();
+    });
+    onAuthStateChanged(firebaseAuth,(currentUser)=>{
+        setUser(currentUser)
+    })
+
+    const deletePost =async (id)=>{
+        const PostDoc = (doc(db, 'Post', id))
+         const willdelete = await swal({
+         title: "Are you sure?",
+         text: "Are you sure that you want to delete this file?",
+         icon: "warning",
+         dangerMode: true,
+        });
+        if (willdelete) {
+           await deleteDoc(PostDoc)
+            swal("Deleted!", "Your Post has been deleted!", "success");
+         }
+
+
+    }
+  
+    // const likePost= (id)=>{
+    //     setLike(like +1 )
+    // }
+
+    // const washingtonRef = doc(db, "cities", "DC");
+
+// Set the "capital" field of the city 'DC'
+//  const updatePost=async()=>{
+//     await updateDoc(PostcollectionRef, {
+//         capital: true
+//       });
+//  }
+
+        // const updatePost=(id, updatedPost)=>{
+        //        const PostDoc=doc(db, "Post", id)
+        //         return updateDoc(PostcollectionRef, {PostDoc})
+        //   }
+
+
+    return (
+        <div className="main-section">
+            <NavSection />
+            <div>
+                {PostList.map((Post) => {
+                    return (
+                        <div className="container ">
+                            <div className="HomeSection--main">
+                                <div className="HomeSection" key={Post.id}>
+                                    <h3 className="HomeSection--title">
+                                        {Post.title}
+                                    </h3>
+                                    <div className="HomeSection--Description">
+                                        {Post.comment}
+                                    </div>
+                                </div>
+                                <div className="HomeSection--small">
+                                    <div className="HomeSection--writer">
+                                         <h4 className="HomeSection--author">@{Post.author.name}</h4> 
+                                       
+                                    </div>
+
+                                    
+                                        <Link to='/CreatePost' className="HomeSection--link">Create a post</Link>
+
+                                        <button className="HomeSection--btn" onClick={()=>{deletePost(Post.id)}}>
+                                             <FaRegTrashAlt className="HomeSection--icon"/>
+                                        </button>
+                                         {/* <div className="like-section">
+                                        
+                                            <button onClick={()=>{likePost(`Post.id`)}}>
+                                            <AiOutlineHeart/>
+                                            </button>
+                                            <span>{like}</span> 
+                                        </div>  */}
+                                            {/* <button onClick={()=>{updatePost(Post.id)}}>
+                                                <AiFillEdit className="HomeSection--icon_edit"/>
+                                            </button> */}
+                                        
+                                           {/* { isAuth && Post.author.id === auth.currentUser.uid ?
+                                                <button className="HomeSection--btn" onClick={()=>{deletePost(Post.id)}}>
+                                                <FaRegTrashAlt className="HomeSection--icon"/>
+                                            </button>: null} */}
+             
+                       
+                                </div>
+                            </div>
                         </div>
-                        <button  onClick={()=>signOut(firebaseAuth)}>signout</button>
-                        <button onClick={()=>{deletePost(Post.id)}}>
-                        delete</button>
-                    </div>
-                </div>
+                    )
+                })}
             </div>
-            </div>
-            )
-        })} 
         </div>
     )
 }
 export default HomePage;
-//{isAuth & Post.author.id=== auth.currentUser.uid &

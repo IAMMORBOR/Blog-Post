@@ -8,23 +8,28 @@ $color--black:#1b2430;
 
 .Signup-Section{
  font-family: $Main-font;
-  height: 100vh;
- background-image: radial-gradient(circle,$Primary-color--2  55%, $color-off-white 10%, $Primary-color);
+ display:flex;
+
+
+ background-color:$Primary-color--2;
+  //height: 100vh;
+  
+
+//  background-image: radial-gradient(circle,$Primary-color--2  55%, $color-off-white 10%, $Primary-color);
 
    &--container{
-    width: 40rem;
+  width: 80%;
+    height: max-content;
+    justify-self: center;
+   align-self: center;
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 5px 5px 8px 4px #eeee;
  
     background-color: rgba(255, 255, 255, .15);
     backdrop-filter: blur (10px);
+    //margin-left: 8rem;
     
-    //margin-bottom: 2rem;
-    position: absolute;
-   top: 10%;
-    right: 27%;
-
    }
    &__label{
      display: block;
@@ -33,7 +38,6 @@ $color--black:#1b2430;
    &__input{
     width: 100%;
     padding: 10px 10px 10px 5px;
-    //margin-bottom: 1rem;
     border-radius: 10px;
     outline: none;
     font-family: $Main-font;
@@ -68,8 +72,26 @@ $color--black:#1b2430;
    
     
    }
+   &--img{
+    width:70%;
+    height: 100vh;
+   }
 }
 ::placeholder{
   font-size: 1rem;
   font-family: $Main-font;
+}
+.Main{
+  width: 50%;
+  background-color:$Primary-color--2;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.Button-component{
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }

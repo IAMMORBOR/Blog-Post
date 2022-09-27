@@ -1,10 +1,12 @@
-import { async } from '@firebase/util';
-import { onAuthStateChanged,signOut} from 'firebase/auth';
-import { useState, useEffect} from "react";
+import { useState} from "react";
 import {useNavigate}from 'react-router-dom';
-import { db, firebaseAuth ,auth} from '../../Firebase'
-import './CreatePost.style.scss'
+import { db,auth} from '../../Firebase'
 import { addDoc, collection} from 'firebase/firestore';
+import { onAuthStateChanged} from 'firebase/auth';
+import { firebaseAuth } from "../../Firebase";
+import './CreatePost.style.scss'
+import swal from "sweetalert";
+import NavSection from "../NavSection/NavSection.component";
 
 
 const CreatePost=()=>{
@@ -13,9 +15,17 @@ const CreatePost=()=>{
     const [user,setUser]= useState(undefined);
     const navigate = useNavigate();
 
-    
+    // onAuthStateChanged(firebaseAuth,(currentUser)=>{
+        // if (currentUser){
+        //     setUser(currentUser);
+           
+        //   } 
     const PostcollectionRef= collection(db, 'Post');
     const NewPost = async(newPost)=>{
+        if(title === '' & comment === ''){
+            alert("fill title and comment section")
+            return;
+        } else{
         await addDoc (PostcollectionRef, {
             title,
             comment,
@@ -23,60 +33,46 @@ const CreatePost=()=>{
                 name:auth.currentUser.displayName,
                 id: auth.currentUser.uid
             }
-
+           
+           
         })
+      
+        await swal("Congratulations!","Your post has been posted!", "success");
         navigate('/HomePage')
        
-    }
-    // useEffect(() => {
-    //     if (!isAuth) {
-    //       navigate("/SignIn");
-    //     }
-    // }, []);
-    
-    // onAuthStateChanged(firebaseAuth,(currentUser)=>{
-    //     if (currentUser){
-    //       setUser(currentUser);
-         
-    //     } 
-    //      else {
-    //       navigate ('/SignIn')
-    //      } 
-              
-    //   })
+        }}
+
+
+  
+
+  
     return(
+       
+
         <div className='content--MainSection'>
             <div className='content--CommentSection'>
-                <div className='content--userProfie'>
-                    <img src={localStorage.getItem("profilePicture")}/>
-                    {localStorage.getItem("name")}
-
-                </div>
                 <div className='content--textSection'>
                     
-                        <input className='content--topicBox'
+                        <input className='content--MainSection--topicBox'
                         type='text' 
                         placeholder="Topic"
                         onChange={(e)=>{setTitle (e.target.value)}}
 
                         /><br/>
-                        <textarea className='content--textArea' 
+                        <textarea className='content--MainSection--textArea' 
                         rows="20" cols="70" name="comment"  
                         placeholder="What's on your mind?"
                         onChange={(e)=>{setComment (e.target.value)}}
                         />
+                         
                         <div className='content--btnSection'>
-                            <button type='submit' onClick={NewPost}>Post</button>
-                            <button>like</button>
-                            <button>comment</button>
-                            <button>delete</button>
+                           <button className="content--MainSection--btn" type='submit'
+                            onClick={NewPost}>Post</button>
                         </div>
        
                 </div>
            </div>
-           {/* <button onClick={()=>signOut(firebaseAuth)}>
-            Sign Out
-        </button> */}
+           
         </div>
     )
        
