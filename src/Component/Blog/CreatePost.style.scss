@@ -13,6 +13,11 @@ $Main-font:'Josefin Sans','Roboto','EB+Garamond', sans-serif;
     background-color: $Primary-color--2;
     padding: 4rem;
 
+    &--textArea{
+      height: 30rem;
+      width: 30rem;
+    }
+
  &--topicBox{
     padding: 1rem;
     border: 2px solid $Primary-color--2;
@@ -60,5 +65,22 @@ $Main-font:'Josefin Sans','Roboto','EB+Garamond', sans-serif;
     background-color:#fff;
     box-shadow: 3px 4px 3px 2px grey;
     border-radius: 20px;
+
    
+}
+@media (max-width:600px){
+   .content--MainSection{
+    display: block;
+    height: 100vh;
+
+    &--textArea{
+      height: 20rem;
+      width: 100%; 
+  }
+    
+   }
+   .content--textSection{
+     width: 100%;
+  }
+
 }

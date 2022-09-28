@@ -6,7 +6,7 @@ import Button from "../Button-component/Button.component";
 //import Content from "../ContentSection/Content.component";
 //import { async } from "@firebase/util";
 import './SignUp.style.scss'
-import SignUpImage from '../imageContainner/projectImgBGR.png'
+
 
 
 const DefaultFormField={
@@ -59,8 +59,8 @@ const SignUp=  ()=>{
     }
     return (
         <div className="Signup-Section">
-            <img className="Signup-Section--img" src={SignUpImage}/>
-            <div className="Main">
+            {/* <img className="Signup-Section--img" src={SignUpImage}/> */}
+            
             <div className="Signup-Section--container">
                 <h3 className="Signup-Section--text">SIGN UP</h3>
                 <div className="SignupForm-Section">
@@ -102,7 +102,6 @@ const SignUp=  ()=>{
                     Already have an account? 
                     <Link to='./SignIn'>Login</Link>
                 </span>
-            </div>
             </div>
         </div>
         

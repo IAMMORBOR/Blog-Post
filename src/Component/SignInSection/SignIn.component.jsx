@@ -4,7 +4,6 @@ import { useState } from "react"
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import './Signin.style.scss';
-import SignUpImage from '../imageContainner/projectImg2.png'
 import Button from '../Button-component/Button.component'
 
 //createUserDocumentFromAuth
@@ -66,7 +65,6 @@ const SignIn = () => {
     
     return (
     <div className='Form-Section'>
-         <img className="Form-Section--img" src={SignUpImage}/>
         <div className='Form-Section--container'>
             <div className='SigninSection__heading'>
                 {/* <h3>Hello Again, Paadi mi</h3> */}

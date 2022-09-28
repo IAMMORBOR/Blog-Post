@@ -60,7 +60,7 @@ const CreatePost=()=>{
 
                         /><br/>
                         <textarea className='content--MainSection--textArea' 
-                        rows="20" cols="70" name="comment"  
+                        rows="" cols="" name="comment"  
                         placeholder="What's on your mind?"
                         onChange={(e)=>{setComment (e.target.value)}}
                         />

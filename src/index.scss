@@ -25,10 +25,33 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: $Main-font;
+
  
 
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+// MEDIA QUERY SECTION
+@media (max-width:900px){
+  body{
+   
+  }
+
+}
+@media (max-width:600px){
+  body{
+    
+  overflow-x: hidden;
+  }
+
+}
+@media (max-width:390px){
+  body{
+  overflow-x: hidden;
+  width: 100%;
+  
+  }
+
 }
