@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import './NavSection.style.scss'
 import Button from "../Button-component/Button.component";
 import { useEffect } from "react";
+import { Link } from "react-router-dom"; 
 
 const NavSection=()=>{
     const [user, setUser]=useState('');
@@ -30,6 +31,7 @@ const NavSection=()=>{
              <div className="userDetails">welcome {user?.email}</div>
         </div>
         <Button  btntype="main" className="authsection--signout"  handleclick={()=>signOut(firebaseAuth)}>signout</Button>
+        <Link to='/CreatePost' className="HomeSection--link">Create a post</Link>
     </div>
 
     )

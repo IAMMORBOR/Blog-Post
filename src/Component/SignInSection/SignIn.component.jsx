@@ -4,6 +4,7 @@ import { useState } from "react"
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import './Signin.style.scss';
+import swal from 'sweetalert'
 import Button from '../Button-component/Button.component'
 
 //createUserDocumentFromAuth
@@ -36,7 +37,7 @@ const SignIn = () => {
 
         } catch (error) {
             if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
-                alert('username or password in correct. please try again');
+                swal('username or password incorrect. please try again');
             } else console.log(error)
             return;
         }

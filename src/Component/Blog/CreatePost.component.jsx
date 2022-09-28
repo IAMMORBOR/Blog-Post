@@ -23,7 +23,7 @@ const CreatePost=()=>{
     const PostcollectionRef= collection(db, 'Post');
     const NewPost = async(newPost)=>{
         if(title === '' & comment === ''){
-            alert("fill title and comment section")
+            swal("Title and comment section should be filled");
             return;
         } else{
         await addDoc (PostcollectionRef, {

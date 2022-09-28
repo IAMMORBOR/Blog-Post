@@ -10,14 +10,13 @@ import {
     deleteDoc
 } from "firebase/firestore";
 import { useState, useEffect} from "react";
-import { Link } from "react-router-dom";
 import NavSection from "../NavSection/NavSection.component";
 import {FaRegTrashAlt} from 'react-icons/fa';
-import {AiOutlineHeart}from 'react-icons/ai'
+//import {AiOutlineHeart}from 'react-icons/ai'
 import {AiFillEdit}from 'react-icons/ai'
-import Button from "../Button-component/Button.component";
+//import Button from "../Button-component/Button.component";
 import './BlogHome.style.scss'
-import { async } from "@firebase/util";
+
 
 
 
@@ -36,7 +35,7 @@ const HomePage = ({isAuth}) => {
             SetPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
         };
         getPosts();
-    });
+},[]);
     onAuthStateChanged(firebaseAuth,(currentUser)=>{
         setUser(currentUser)
     })
@@ -88,8 +87,10 @@ const HomePage = ({isAuth}) => {
                                     <h3 className="HomeSection--title">
                                         {Post.title}
                                     </h3>
-                                    <div className="HomeSection--Description">
-                                        {Post.comment}
+                                    <div className="HomeSection--box">
+                                        <div className="HomeSection--Description">
+                                            {Post.comment}
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="HomeSection--small">
@@ -98,12 +99,9 @@ const HomePage = ({isAuth}) => {
                                        
                                     </div>
 
-                                    
-                                        <Link to='/CreatePost' className="HomeSection--link">Create a post</Link>
-
-                                        <button className="HomeSection--btn" onClick={()=>{deletePost(Post.id)}}>
+                                        {/* <button className="HomeSection--btn" onClick={()=>{deletePost(Post.id)}}>
                                              <FaRegTrashAlt className="HomeSection--icon"/>
-                                        </button>
+                                        </button> */}
                                          {/* <div className="like-section">
                                         
                                             <button onClick={()=>{likePost(`Post.id`)}}>
@@ -115,10 +113,10 @@ const HomePage = ({isAuth}) => {
                                                 <AiFillEdit className="HomeSection--icon_edit"/>
                                             </button> */}
                                         
-                                           {/* { isAuth && Post.author.id === auth.currentUser.uid ?
+                                           {Post.author.id === auth.currentUser.uid ?
                                                 <button className="HomeSection--btn" onClick={()=>{deletePost(Post.id)}}>
                                                 <FaRegTrashAlt className="HomeSection--icon"/>
-                                            </button>: null} */}
+                                            </button> : null }
              
                        
                                 </div>

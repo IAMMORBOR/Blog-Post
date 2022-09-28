@@ -14,8 +14,8 @@ $Main-font:'Josefin Sans','Roboto','EB+Garamond', sans-serif;
     padding: 4rem;
 
     &--textArea{
-      height: 30rem;
-      width: 30rem;
+      height: 20rem;
+      width: 46rem;
     }
 
  &--topicBox{
@@ -35,6 +35,9 @@ $Main-font:'Josefin Sans','Roboto','EB+Garamond', sans-serif;
     outline: none;
     font-family: $Main-font;
     color: $color--black;
+    line-height: 1.5rem;
+    word-spacing: .2rem;
+    font-size: 1.2rem;
  
 
 

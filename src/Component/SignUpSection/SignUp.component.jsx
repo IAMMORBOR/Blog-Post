@@ -3,8 +3,7 @@ import { useState } from "react";
 import{createUserWithEmailAndPassword, onAuthStateChanged}from 'firebase/auth'
 import { firebaseAuth } from '../../Firebase'
 import Button from "../Button-component/Button.component";
-//import Content from "../ContentSection/Content.component";
-//import { async } from "@firebase/util";
+import swal from "sweetalert";
 import './SignUp.style.scss'
 
 
@@ -35,7 +34,7 @@ const SignUp=  ()=>{
         e.preventDefault();
 
         if (Password !== ConfirmPassword || Password < 6){
-            alert ('Password do not match')
+            swal('Password do not match');
             return;
         }
         try {
@@ -45,7 +44,7 @@ const SignUp=  ()=>{
 
         }catch (error) {
             if (error.code === "auth/email-already-in-use"){
-                alert('Email already in use ')
+                swal('Email Already in use ');
             }
             console.log("user creation encounter an error", error);
             return;

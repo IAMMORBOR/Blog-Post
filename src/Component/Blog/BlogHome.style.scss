@@ -35,7 +35,7 @@ $color-edit: #FFC000;
 
     }
     &--title,
-    &--Description{
+    &--box{
         background-color:$color--white;
         box-shadow: 2px 2px 1px 4px $color-off-white,
         0rem 0px 4px 5px $color--white,
@@ -52,10 +52,19 @@ $color-edit: #FFC000;
         justify-content: end;
 
      }
- &--Description{
-        height: auto;
+     &--box{
+        height: 30vh;
+        line-height: 1.9rem;
+        word-spacing: .2rem;
+        font-size: 1.2rem;
+       overflow-y:scroll;
+
+     }
+//  &--Description{
+//         // height: 100%;
+        
      
- }
+//  }
 
     &--link-section{
         display: flex;
