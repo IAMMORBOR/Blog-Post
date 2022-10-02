@@ -35,7 +35,7 @@ const HomePage = ({isAuth}) => {
             SetPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
         };
         getPosts();
-},[]);
+},[PostList]);
     onAuthStateChanged(firebaseAuth,(currentUser)=>{
         setUser(currentUser)
     })
