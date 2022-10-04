@@ -2,7 +2,8 @@ import { firebaseAuth, signInWithGooglePopup  } from '../../Firebase'
 import { onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth'
 import { useState } from "react"
 import { useNavigate } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import {FcGoogle}from 'react-icons/fc';
 import './Signin.style.scss';
 import swal from 'sweetalert'
 import Button from '../Button-component/Button.component'
@@ -66,10 +67,10 @@ const SignIn = () => {
     
     return (
     <div className='Form-Section'>
-        <div className='Form-Section--container'>
+       <div className='Form-Section--container'>
             <div className='SigninSection__heading'>
                 {/* <h3>Hello Again, Paadi mi</h3> */}
-            </div>
+              </div>
             <h3 className='Form-Section--text'>SIGN IN</h3> 
             <div className="Form-Section--login__container">
                 <label className='Form-Section__label'> 
@@ -81,15 +82,17 @@ const SignIn = () => {
 
                 <label className='Form-Section__label'>
                     <input type='password' required placeholder='Enter Your Password' className='Form-Section__input'
-                        onChange={Handlechange}
-                        name='password'
-                    value={password} />
+                    onChange={Handlechange}
+                    name='password'
+                     value={password} />
                 </label>
-            <div className='Button-component'>
-                
-                <Button type="submit" handleclick={HandleLogin} btntype="main">Login</Button>
-                    <Button btntype="main" handleclick={LoginWithGooglePopup}
-                   >Login with Google</Button>
+                <div className='Button-component'>
+                    <Button type="submit" handleclick={HandleLogin} btntype="main">Login</Button>
+                    <Button btntype="google" handleclick={LoginWithGooglePopup}>
+                        <div className='google-icon-wrapper'>
+                        <FcGoogle className='google-icon'/>
+                        </div>
+                    Login with Google</Button>
                 </div>
             </div>
             < span className='Form-Section--span'> Don't have an Account?
@@ -97,7 +100,6 @@ const SignIn = () => {
             </span>
         </div>
     </div>
-
-    )
+)
 }
 export default SignIn;

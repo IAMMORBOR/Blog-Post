@@ -25,7 +25,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: $Main-font;
-
+  background-image: linear-gradient(to bottom right, $Primary-color--2, $Primary-color);
+  
  
 
 }
@@ -34,12 +35,12 @@ code {
     monospace;
 }
 // MEDIA QUERY SECTION
-@media (max-width:900px){
-  body{
+// @media (max-width:900px){
+//   body{
    
-  }
+//   }
 
-}
+// }
 @media (max-width:600px){
   body{
     

@@ -21,10 +21,13 @@ import './BlogHome.style.scss'
 
 
 
+
+
 const HomePage = ({isAuth}) => {
     const [PostList, SetPostList] = useState([]);
     const [user, setUser]=useState()
     //const [like, setLike]=useState(1);
+   
 
 
     const PostcollectionRef = collection(db, 'Post');
@@ -117,8 +120,6 @@ const HomePage = ({isAuth}) => {
                                                 <button className="HomeSection--btn" onClick={()=>{deletePost(Post.id)}}>
                                                 <FaRegTrashAlt className="HomeSection--icon"/>
                                             </button> : null }
-             
-                       
                                 </div>
                             </div>
                         </div>

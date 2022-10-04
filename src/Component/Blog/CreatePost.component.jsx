@@ -15,11 +15,6 @@ const CreatePost=()=>{
     const [user,setUser]= useState(undefined);
     const navigate = useNavigate();
 
-    // onAuthStateChanged(firebaseAuth,(currentUser)=>{
-        // if (currentUser){
-        //     setUser(currentUser);
-           
-        //   } 
     const PostcollectionRef= collection(db, 'Post');
     const NewPost = async(newPost)=>{
         if(title === '' & comment === ''){
