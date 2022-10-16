@@ -71,19 +71,38 @@ $Main-font:'Josefin Sans','Roboto','EB+Garamond', sans-serif;
 
    
 }
-@media (max-width:600px){
-   .content--MainSection{
-    display: block;
+@media (max-width:56.25em){
+  .content--textSection{
+    border-radius: 0px;
     height: 100vh;
+    width: 100vw;
+    padding: 1rem;
+  }
+  .content--MainSection{
+   
 
     &--textArea{
-      height: 20rem;
+      //height: 20rem;
+      width: 100%; 
+  }
+}
+
+}
+@media (max-width:37.5em){
+   .content--MainSection{
+   
+
+    &--textArea{
+      //height: ;
       width: 100%; 
   }
     
    }
    .content--textSection{
-     width: 100%;
+    border-radius: 0px;
+   height: 100vh;
+    width: 100vw;
+    padding: 1rem;
   }
 
 }

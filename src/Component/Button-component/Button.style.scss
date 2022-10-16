@@ -58,6 +58,26 @@ $button-active-blue: #1669F2;
             background: $button-active-blue;
         }  
     }
+    &--navbtn{
+        margin-left: 1rem;
+        color:$white;
+        width: 5rem;
+        height: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding:1rem 2rem;
+      
+       
+        
+
+        &:hover{
+            background-color: $Primary-color;
+        }
+        
+
+
+    }
 }
 
 .google-icon {
@@ -73,4 +93,26 @@ $button-active-blue: #1669F2;
     background-color: $white;
   }
 
+  @media (max-width:37.5em){
+    .google-icon-wrapper {
+        margin-right:5.5rem;
 
+    }
+    .btn{
+    &--navbtn{
+        position: absolute;
+        top: 10%;
+        left: 10%;
+        padding: 10px 2rem;
+        background-color: $Primary-color;
+    }
+}
+  
+}
+@media (max-width:400px){
+    .google-icon-wrapper {
+        margin-right:3rem;
+
+    }
+  
+}

@@ -4,9 +4,11 @@ import { useState } from "react"
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom';
 import {FcGoogle}from 'react-icons/fc';
+import { signOutUser } from "../../Firebase";
 import './Signin.style.scss';
-import swal from 'sweetalert'
+import swal from 'sweetalert';
 import Button from '../Button-component/Button.component'
+
 
 //createUserDocumentFromAuth
 
@@ -61,15 +63,17 @@ const SignIn = () => {
     }
 
     onAuthStateChanged(firebaseAuth, (currentUser) => {
-        if (currentUser) navigate("/HomePage");
-        
+        if (currentUser) {
+            navigate("/HomePage")
+         }else{
+            signOutUser()
+         }
+       
     })
-    
     return (
     <div className='Form-Section'>
        <div className='Form-Section--container'>
             <div className='SigninSection__heading'>
-                {/* <h3>Hello Again, Paadi mi</h3> */}
               </div>
             <h3 className='Form-Section--text'>SIGN IN</h3> 
             <div className="Form-Section--login__container">

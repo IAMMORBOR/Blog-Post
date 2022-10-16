@@ -2,12 +2,8 @@ import { useState} from "react";
 import {useNavigate}from 'react-router-dom';
 import { db,auth} from '../../Firebase'
 import { addDoc, collection} from 'firebase/firestore';
-import { onAuthStateChanged} from 'firebase/auth';
-import { firebaseAuth } from "../../Firebase";
 import './CreatePost.style.scss'
 import swal from "sweetalert";
-import NavSection from "../NavSection/NavSection.component";
-
 
 const CreatePost=()=>{
     const [title, setTitle]=useState('');
@@ -31,19 +27,13 @@ const CreatePost=()=>{
            
            
         })
+        
       
         await swal("Congratulations!","Your post has been posted!", "success");
         navigate('/HomePage')
        
         }}
-
-
-  
-
-  
     return(
-       
-
         <div className='content--MainSection'>
             <div className='content--CommentSection'>
                 <div className='content--textSection'>

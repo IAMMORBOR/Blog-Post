@@ -2,42 +2,78 @@ $Primary-color: #a5f1e9;
 $Primary-color--2: #7fbcd2;
 $color-off-white: #eeee;
 $color--black:#1b2430;
+$white:#fff;
 
-.authsection{
+.MainNav{
     background-color:$Primary-color--2;
     height: 3rem;
     width: 100%;
     margin-bottom: 2rem;
- box-shadow: 3px 3px 4px 2px $color-off-white;
- display: flex;
- align-items: center;
-
-
-
-
-    &--user{
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-    }
+    box-shadow: 3px 3px 4px 2px $color-off-white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    //overflow: hidden;
+ 
 
     &--img{
         border-radius: 50%;
         height: 20%;
         width:20%;
-    }
-    &--signout{
-        position: absolute;
-        top:3%;
-        left: 10%;
-    }
-    &--signout{
-        width: 2rem;
-    }
-    
+    }  
+}
+.Nav-section{
+    display: flex;
 }
 .userDetails{
-    margin: 0 2rem;
     font-size: 1.3rem;
-    color: $color-off-white;
+    color: $white;
+}
+
+//MEDIA QUERY
+@media (min-width: 112.5em) {
+   
+    
+}
+@media (max-width: 75em) {
+  
+   .userDetails{
+     margin: 0 0 0 -4rem ;
+      
+    }
+
+}
+@media (max-width: 56.2em) {
+    .MainNav{
+       // justify-content: space-between;
+       }
+    .userDetails{
+        margin: 0 0 0 2rem ;
+      
+    }
+
+}
+@media (max-width: 37.5em) {
+    .userDetails{
+        margin: none ;
+   
+      
+    }
+    .MainNav{
+        width: 100vw;
+        height: 8rem;
+       // display: flex;
+        align-items: center;
+       //margin-right: 5px;
+       //overflow: hidden;
+    }
+
+    .authsection--signout{
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        display: block;
+        
+    }
+
 }
