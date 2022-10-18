@@ -11,9 +11,9 @@ function App({isAuth}) {
   
     <Routes>
     <Route path="/" element={<SignUp/>}/>
-      <Route path="/SignIn" element={<SignIn/>}/>
-      <Route path="/CreatePost" element={<CreatePost/>}/>
-      <Route path="/HomePage" element={<HomePage isAuth={isAuth}/>}/>
+      <Route path="/signin" element={<SignIn/>}/>
+      <Route path="/createpost" element={<CreatePost/>}/>
+      <Route path="/homepage" element={<HomePage isAuth={isAuth}/>}/>
     </Routes>
     </div>
   );
